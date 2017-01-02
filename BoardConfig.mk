@@ -102,6 +102,9 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.clovertrail
 # Houdini: enable ARM codegen for x86
 BUILD_ARM_FOR_X86 := true
 
+# Text Relocations fix for some libs
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
 # IMG graphics
 BOARD_GLOBAL_CFLAGS += -DASUS_ZENFONE2_LP_BLOBS
 ENABLE_IMG_GRAPHICS := true
