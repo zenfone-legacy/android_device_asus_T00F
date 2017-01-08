@@ -1,1 +1,3 @@
 #genfscon sepfs / u:object_r:sepfs:s0
+genfscon texfat / u:object_r:sdcard_external:s0
+genfscon tntfs / u:object_r:sdcard_external:s0
