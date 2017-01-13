@@ -166,7 +166,6 @@ BOARD_PROVIDES_LIBRIL := true
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-TARGET_RECOVERY_FSTAB := device/asus/T00F/rootdir/etc/fstab.redhookbay
 TARGET_RECOVERY_DEVICE_MODULES := libinit_ctp librecovery_updater_ctp thermald upi_ug31xx
 
 # Security
@@ -178,6 +177,20 @@ BOARD_SEPOLICY_DIRS += device/asus/T00F/sepolicy
 
 # DT2W
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/pci0000:00/0000:00:00.3/i2c-0/0-0020/input/input1/dclick_mode"
+
+# TWRP
+TW_THEME := portrait_hdpi
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := true
+TW_EXCLUDE_SUPERSU := true
+TW_NO_USB_STORAGE := true
+BOARD_HAS_NO_REAL_SDCARD := true
+TW_INCLUDE_NTFS_3G := true
+BOARD_SUPPRESS_EMMC_WIPE := true
+RECOVERY_VARIANT := twrp
+TARGET_RECOVERY_FSTAB := device/asus/T00F/recovery/root/etc/twrp.fstab
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ctp librecovery_updater_ctp thermald upi_ug31xx
 
 # Wifi
 BOARD_WLAN_DEVICE           := bcmdhd
