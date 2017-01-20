@@ -84,15 +84,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# Dex-preoptimization: Speeds up initial boot (if we ever o a user build, which we don't)
-ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-
 # Hardware
 BOARD_HARDWARE_CLASS := device/asus/T00F/cmhw
 
