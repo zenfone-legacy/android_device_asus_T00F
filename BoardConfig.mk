@@ -198,3 +198,7 @@ WIFI_DRIVER_MODULE_ARG := "iface_name=wlan0 firmware_path=/system/etc/firmware/f
 # Dex-preoptimization: Speeds up initial boot
 WITH_DEXPREOPT := true
 
+# Skip some proccess to speed up build
+BOARD_SKIP_ANDROID_DOC_BUILD := true
+BUILD_EMULATOR := false
+
