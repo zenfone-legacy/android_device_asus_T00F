@@ -202,3 +202,5 @@ WITH_DEXPREOPT := true
 BOARD_SKIP_ANDROID_DOC_BUILD := true
 BUILD_EMULATOR := false
 
+# Su
+ export WITH_SU=true
