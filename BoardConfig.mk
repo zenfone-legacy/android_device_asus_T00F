@@ -195,3 +195,6 @@ WIFI_DRIVER_MODULE_ARG := "iface_name=wlan0 firmware_path=/system/etc/firmware/f
 # Use the non-open-source parts, if they're present
 -include vendor/asus/T00F/BoardConfigVendor.mk
 
+# Dex-preoptimization: Speeds up initial boot
+WITH_DEXPREOPT := true
+
