@@ -85,15 +85,6 @@ WITH_CM_CHARGER := false
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/asus/T00F/charger/images
 
-# Dex-preoptimization: Speeds up initial boot (if we ever o a user build, which we don't)
-ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-
 # Hardware
 BOARD_HARDWARE_CLASS := device/asus/T00F/cmhw
 
@@ -193,7 +184,19 @@ WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcm43362/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_AP    := "/system/etc/firmware/fw_bcmdhd_43362_apsta.bin"
 WIFI_DRIVER_FW_PATH_STA   := "/system/etc/firmware/fw_bcmdhd_43362.bin"
 WIFI_DRIVER_MODULE_ARG := "iface_name=wlan0 firmware_path=/system/etc/firmware/fw_bcmdhd_43362.bin"
+WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcmdhd.bin"
 
 # Use the non-open-source parts, if they're present
 -include vendor/asus/T00F/BoardConfigVendor.mk
 
+# Dex-preoptimization: Speeds up initial boot
+WITH_DEXPREOPT := true
+
+# Skip some proccess to speed up build
+BOARD_SKIP_ANDROID_DOC_BUILD := true
+BUILD_EMULATOR := false
+
+# Su
+ export WITH_SU=true
